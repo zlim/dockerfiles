@@ -1,17 +1,13 @@
-FROM ubuntu:14.10
+FROM ubuntu:15.10
 MAINTAINER Zi Shen Lim <zlim.lnx@gmail.com>
 
+ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update -y && \
-    DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
-
-RUN apt-get update -y && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    apt-get upgrade -y && \
+    apt-get install -y \
         bc \
         gcc \
+        gcc-aarch64-linux-gnu \
         git \
         make
-
-RUN apt-get update -y && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y \
-        gcc-aarch64-linux-gnu
 
